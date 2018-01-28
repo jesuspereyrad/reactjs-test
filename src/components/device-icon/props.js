@@ -24,7 +24,12 @@ const propTypes = {
     * If power is true replace the third position of 
     * image source with power.
     */
-    power: PropTypes.bool
+    power: PropTypes.bool,
+
+    /* 
+    * Style for the component
+    */
+    style: PropTypes.any
 };
 
 const defaultProps = {

@@ -26,10 +26,8 @@ class DeviceIcon extends PureComponent {
   render() {
     const path = require(`../../resources/assets/images/${this.getIconUrl()}`);
     return (
-      <div id="device-icon">
-        <img src={(path)} className="image" 
-            style={this.props.imageStyle} alt="icon"
-        />
+      <div id="device-icon" style={this.props.style}>
+        <img src={(path)} className="image-style" alt="icon"/>
       </div>
     );
   }
