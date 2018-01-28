@@ -61,9 +61,9 @@ Clicking decrease will decrement the counter (and the number of displayed compon
 ### Add Images
 * To add images, go to src/resources/assets/images and paste the svg image there.
 * If this image is a new type doesn't describe on the task, add the type name in src/component/device-icon/constant.js
-* image name formule availible
-  * types-type-none-none-none-none.svg
-  * types-type-none-service-none-none.svg
-  * types-type-none-none-power-none.svg
-  * types-type-none-service-power-none.svg
+* image name formule example
+  * types-audio-none-none-none-none.svg
+  * types-audio-none-service-none-none.svg
+  * types-audio-none-none-power-none.svg
+  * types-audio-none-service-power-none.svg
  
