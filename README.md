@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Test project with React JS
 
 ## Description 
@@ -61,3 +62,7 @@ Clicking decrease will decrement the counter (and the number of displayed compon
 ### Add Images
   * To add images, go to src/resources/assets/images and paste the svg image there.
   * If this image is a new type doesn't describe on the task, add the type name in src/component/device-icon/constant,js
+=======
+# reactjs-test
+A react js application test with one component and one container
+>>>>>>> Initial commit
