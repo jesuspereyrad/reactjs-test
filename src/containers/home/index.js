@@ -25,7 +25,7 @@ class Home extends Component {
   * The increase counter set a new state with value = value + counter
   */
   increaseCounter() {
-    this.setState({value: this.state.value + this.state.counter})
+    this.setState({value: parseInt(this.state.value) + this.state.counter})
   }
 
   /**
@@ -40,7 +40,7 @@ class Home extends Component {
   */
   decreaseCounter() {
     if (this.state.value - this.state.counter >= 0) {
-      this.setState({value: this.state.value - this.state.counter})
+      this.setState({value: parseInt(this.state.value) - this.state.counter})
     }
   }
 
