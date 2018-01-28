@@ -3,6 +3,7 @@ import React, { PureComponent } from 'react';
 
 // Internal
 import Props from './props';
+import Constant from './constant';
 import "./style.css";
 
 /**
@@ -14,7 +15,34 @@ class DeviceIcon extends PureComponent {
   * @return {String}
   */
   getIconUrl() {
-    return (`types-${this.props.type}--${this.props.service ? 'service' : ''}-${this.props.power ? 'power' : ''}-.svg`);
+    if(this.props.type) {
+      return (`types-${this.props.type}-none-${this.props.service ? 'service' : 'none'}-${this.props.power ? 'power' : 'none'}-none.svg`);
+    } else {
+      console.warn("Missing property type");
+    }
+  }
+
+  /**
+  * Render the svg image
+  * @return {ReactElement} JSX component
+  */
+  renderImage() {
+    const path = require(`../../resources/assets/images/${this.getIconUrl()}`);
+    return (
+      <img src={(path)} className="image-style" alt="icon"/>
+    );
+  }
+
+  /**
+  * Render a warning text if property type is undefined
+  * @return {ReactElement} JSX component
+  */
+  renderWarningMessage() {
+    return (
+      <div className="alert alert-danger" role="alert">
+        <strong>Oh snap!</strong> {Constant.warnMessage}.
+      </div>
+    )
   }
 
   /**
@@ -22,10 +50,9 @@ class DeviceIcon extends PureComponent {
   * @return {ReactElement} JSX component
   */
   render() {
-    const path = require(`../../resources/assets/images/${this.getIconUrl()}`);
     return (
       <div id="device-icon" style={this.props.style}>
-        <img src={(path)} className="image-style" alt="icon"/>
+        {this.props.type ? this.renderImage() : this.renderWarningMessage()}
       </div>
     );
   }

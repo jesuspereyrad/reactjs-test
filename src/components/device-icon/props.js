@@ -2,9 +2,9 @@
 import PropTypes from 'prop-types';
 
 // Internal
-// import Constant from './constant';
+import Constant from './constant';
 
-const MOCK = ['audio', 'camera', 'gaming'];
+// const MOCK = ['audio', 'camera', 'gaming'];
 
 const propTypes = {
 
@@ -12,7 +12,7 @@ const propTypes = {
     * Type is an string from an array of string
     * with possible values store in ../assets/images 
     */
-    type: PropTypes.oneOfType(MOCK).isRequired,
+    type: PropTypes.oneOf(Constant.type).isRequired,
 
     /* 
     * If service is true replace the second position

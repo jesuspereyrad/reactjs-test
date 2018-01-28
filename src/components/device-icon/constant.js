@@ -25,7 +25,8 @@ const Constant = {
         "videoconference",
         "videodisplay",
         "videosource"
-    ]
+    ],
+    warnMessage: "The prop 'type' is marked as required in 'DeviceIcon', but its value is 'undefined'"
 }
 
 export default Constant;
