@@ -3,8 +3,6 @@ import React, { PureComponent } from 'react';
 
 // Internal
 import Props from './props';
-import Constant from './constant';
-// import Assets from '../../../public/assets';
 import "./style.css";
 
 /**
