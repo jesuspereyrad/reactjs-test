@@ -1,6 +1,9 @@
 // External
 import PropTypes from 'prop-types';
 
+// Internal
+// import Constant from './constant';
+
 const MOCK = ['audio', 'camera', 'gaming'];
 
 const propTypes = {
