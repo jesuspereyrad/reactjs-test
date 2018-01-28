@@ -7,8 +7,7 @@ class Home extends Component {
     super(props);
     this.state = {
       counter: 1,
-      value: 0,
-      fail: false
+      value: 0
     };
     this.renderButton = this.renderButton.bind(this);
     this.increaseCounter = this.increaseCounter.bind(this);
@@ -17,8 +16,6 @@ class Home extends Component {
     this.resetCounter = this.resetCounter.bind(this);
     this.renderDeviceIcon = this.renderDeviceIcon.bind(this);
     this.renderMultipleDeviceIcon = this.renderMultipleDeviceIcon.bind(this);
-    this.renderAlert = this.renderAlert.bind(this);
-    this.setFail = this.setFail.bind(this);
   }
 
   /**
@@ -28,18 +25,12 @@ class Home extends Component {
     this.setState({value: this.state.value + this.state.counter})
   }
 
-  /**
-  * The set fail set a new state with an error
-  */
-  setFail() {
-    this.setState({fail: true});
-  }
 
   /**
   * The decrease counter set a new state with value = value - counter
   */
   decreaseCounter() {
-    if (this.state.value - this.state.counter >= 0) {
+    if (this.state.value - this.state.counter > 0) {
       this.setState({value: this.state.value - this.state.counter})
     }
   }
@@ -48,34 +39,17 @@ class Home extends Component {
   * The reset counter set a value and counter to 0
   */
   resetCounter() {
-    this.setState({value: 0, counter: 1, fail: false})
+    this.setState({value: 0, counter: 1})
   }
 
   /**
   * The update counter change the counter value when onChange event is call
   */
   updateCounter(counter) {
-    if(counter.target.value === '') {
-      this.setState({counter: counter.target.value, fail: true})
-
-    }
-    if (counter.target.value > 0) {
-      this.setState({counter: counter.target.value * 1, fail: false})
-    }
+    this.setState({counter: counter.target.value * 1})
   }
 
-  /**
-  * The render alert create a aler when counter is undefined.
-  * @return {ReactElement} JSX component
-  */
-  renderAlert() {
-    return (
-      <div className="alert alert-danger" role="alert">
-        <strong>Oh snap!</strong> Counter is undefined, Please insert a positive number.
-      </div>
-    );
-  }
-
+  
   /**
   * The render button create a single button.
   * @return {ReactElement} JSX component
@@ -83,7 +57,7 @@ class Home extends Component {
   renderButton(name, action, className) {
     return (
       <div>
-        <button type="button" className={className} disabled={this.props.fail} onClick={action}>{name}</button>
+        <button type="button" className={className} onClick={action}>{name}</button>
       </div>
     )
   }
@@ -93,13 +67,12 @@ class Home extends Component {
   * The render device icon create a single DeviceIcon.
   * @return {ReactElement} JSX component
   */
-  renderDeviceIcon(index) {
+  renderDeviceIcon() {
     return (
-      <DeviceIcon
-        key={index}
+      <DeviceIcon 
         type="audio"
-        power={false}
-        service={false}
+        power={true}
+        service={true}
       />
     );
   }
@@ -112,7 +85,7 @@ class Home extends Component {
   renderTextField() {
     return (
       <div>
-        <input type="number" min="1" className="form-control" value={this.state.counter} onChange={this.updateCounter}/>
+        <input type="number" className="form-control" value={this.state.counter} onChange={this.updateCounter}/>
       </div>
     )
   }
@@ -125,7 +98,7 @@ class Home extends Component {
   renderMultipleDeviceIcon() {
     let list = [];
     for (let i = 0; i < this.state.value; i++) {
-      list.push(this.renderDeviceIcon(i));
+      list.push(this.renderDeviceIcon());
     }
     return list;
   }
@@ -136,9 +109,9 @@ class Home extends Component {
   * @return {ReactElement} JSX component
   */
   render() {
+    console.log(this.state.counter);
     return (
       <div className="container-fluid">
-        {this.state.fail ? this.renderAlert() : []}
         <div className="row container-buttons mb-3 mt-5">
           {this.renderButton("Reset", this.resetCounter, "btn btn-secondary square" )}
           {this.renderButton("Increase", this.increaseCounter, "btn btn-primary square" )}
