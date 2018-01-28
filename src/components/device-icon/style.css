@@ -1,0 +1,13 @@
+/* STYLE FOR IMAGE COMPONENT */
+
+#device-icon {
+    padding: 10px;
+    border: 2px solid #ccc;
+    flex: 1;
+    min-width: 75px;
+}
+
+#device-icon .image-style {
+    width: 100%;
+    object-fit: cover
+}
