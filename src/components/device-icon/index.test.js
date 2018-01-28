@@ -1,3 +1,4 @@
+// import getIcon from './index';
 
 /* 
 * this function will be part of the component DeviceIcon
